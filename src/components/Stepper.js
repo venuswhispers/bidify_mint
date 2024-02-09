@@ -13,7 +13,7 @@ import bidifyLogo from "../assets/images/bidify.png";
 
 
 
-const VerticalLinearStepper = ({ activeStep = 0, forSale = false, rate = 30 }) => {
+const VerticalLinearStepper = ({ activeStep = 0, forSale = false, rate = 30, chain = "Chain" }) => {
 
   const steps = forSale ? [
     {
@@ -26,8 +26,7 @@ const VerticalLinearStepper = ({ activeStep = 0, forSale = false, rate = 30 }) =
     },
     {
       label: "Minting NFTs...",
-      description:
-        "Minting NFT to BNB chain",
+      description: `Minting NFT to ${chain} chai`,
     },
     {
       label: "Creating Auctions...",
@@ -125,7 +124,8 @@ const VerticalLinearStepper = ({ activeStep = 0, forSale = false, rate = 30 }) =
 VerticalLinearStepper.propTypes = {
   activeStep: PropsType.number,
   forSale: PropsType.bool,
-  rate: PropsType.number
+  rate: PropsType.number,
+  chain: PropsType.string
 }
 
 export default VerticalLinearStepper;

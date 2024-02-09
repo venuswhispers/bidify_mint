@@ -636,7 +636,7 @@ const Home = () => {
         platform: advanced ? platform : TOKEN_ADDRESSES[chainId],
         etc: chainId === 137 ? { value: mintCost, from: address, gasLimit: 285000, gasPrice: ethers.utils.parseUnits('300', 'gwei') } :
         { value: mintCost, from: address }
-      })
+      });
 
       const tx = await bidifyMinter.mint(
         tokenURIJson.toString(),
@@ -1686,7 +1686,7 @@ const Home = () => {
               {advanced ? "Mint Advanced NFT" : "Mint TOKEN_ADDRESSES NFT"}
             </button>
 
-            {isLoading && <VerticalLinearStepper activeStep={activeStep} forSale={forSale} rate={rate}/>}
+            {isLoading && <VerticalLinearStepper activeStep={activeStep} forSale={forSale} rate={rate} chain={NETWORKS[chainId].label}/>}
           </div>
         </div>
       </div>
