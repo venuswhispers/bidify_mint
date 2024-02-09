@@ -485,7 +485,7 @@ export const ERC721_ABI = [
   },
 ];
 
-export const BIDIFY = {
+export const BIDIFY = { //this is for auction
   address: {
     [NetworkId.RINKEBY]: "0xE9f8f0267342c4b9e65C7Bc14c1b33877e10C817", //new tested
     [NetworkId.ETHERGEM]: "0x159f569E2c35C7B5B601D222AFafc90edD23E1f9", //new tested

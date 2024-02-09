@@ -4,36 +4,35 @@ import Home from "./pages/Home";
 
 import ActiveWeb3Provider from "./contexts/Web3Context";
 import { Web3Provider } from "@ethersproject/providers";
+// import NotificationProvider from "../src/contexts/NotificationContext";
 // import GA from './utils/GoogleAnalytics'
 import { useAnalytics } from "./utils/GoogleAnalytics";
 import { Wrapper } from "./components/Wrapper";
 
-//rainbowkit
+//rainbowkit @used by dew
 import "@rainbow-me/rainbowkit/styles.css";
-
 import {
-  getDefaultWallets,
   RainbowKitProvider,
   connectorsForWallets,
 } from "@rainbow-me/rainbowkit";
+
+import { publicProvider } from "wagmi/providers/public";
+
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
+
 import {
-  mainnet,
   polygon,
-  // opBNB,
-  // avax,
-  // etc,
-  // op,
-  // arb,
+  avalanche,
+  bsc,
+  classic,
+  optimism,
+  arbitrum,
   mantle,
   base,
   scroll,
   goerli,
   sepolia,
 } from "wagmi/chains";
-
-import { alchemyProvider } from "wagmi/providers/alchemy";
-import { publicProvider } from "wagmi/providers/public";
 
 import {
   metaMaskWallet,
@@ -45,19 +44,39 @@ import {
   okxWallet,
 } from "@rainbow-me/rainbowkit/wallets";
 
-const { chains, publicClient } = configureChains(
-  [mainnet, polygon, mantle, base, scroll, goerli, sepolia],
-  [
-    alchemyProvider({ apiKey: "2XseyLBOGKS5JJaYdROTvi-ZgP9UcGYC" }),
-    publicProvider(),
-  ]
-);
+const defaultChains = [
+  polygon,
+  bsc,
+  avalanche,
+  {
+    ...classic,
+    iconUrl: "/chain_logos/etc.svg",
+  },
+  classic,
+  optimism,
+  arbitrum,
+  {
+    ...mantle,
+    iconUrl: "/chain_logos/mantle.avif",
+  },
+  base,
+  {
+    ...scroll,
+    iconUrl: "/chain_logos/scroll.svg",
+  },
+  sepolia,
+  goerli,
+];
+const { chains, publicClient } = configureChains(defaultChains, [
+  // infuraProvider({ apiKey: "07556fc9491e4dbb9c75160d21174a79" }),
+  publicProvider(),
+]);
 const projectId =
-  process.env.REACT_APP_PROJECT_ID || "e89228fed40d4c6e9520912214dfd68b";
+  process.env.REACT_APP_PROJECT_ID || "mint.bidify.cloud's Project id";
 
 const connectors = connectorsForWallets([
   {
-    groupName: "bidify.org",
+    groupName: "mint.bidify.org",
     wallets: [
       metaMaskWallet({ projectId, chains, shimDisconnect: true }),
       phantomWallet({ chains }),
@@ -81,20 +100,19 @@ function getLibrary(provider) {
 }
 
 function App() {
+  //@ modified by dew
   const { initialized } = useAnalytics();
   return (
-    // <div>
     <WagmiConfig config={wagmiConfig}>
       <RainbowKitProvider chains={chains}>
-        <ActiveWeb3Provider>
-          <BrowserRouter>
-            <Wrapper initialized={initialized} />
-            <Routes>
-              {/* { GA.init() && <GA.RouteTracker /> } */}
-              <Route path="/" element={<Home />} />
-            </Routes>
-          </BrowserRouter>
-        </ActiveWeb3Provider>
+          <ActiveWeb3Provider>
+            <BrowserRouter>
+              <Wrapper initialized={initialized} />
+              <Routes>
+                <Route path="/" element={<Home />} />
+              </Routes>
+            </BrowserRouter>
+          </ActiveWeb3Provider>
       </RainbowKitProvider>
     </WagmiConfig>
   );

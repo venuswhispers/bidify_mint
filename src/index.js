@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 // import 'flowbite';
 
 ReactDOM.render(
-    <App />,
+  <App />,
   document.getElementById('root')
 );
 

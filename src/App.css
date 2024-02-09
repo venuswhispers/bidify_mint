@@ -60,3 +60,18 @@
   background-color: #392610;
   border-radius: 4px;
 }
+
+.iekbcc0::-webkit-scrollbar {
+  width: 7px;
+}
+.iekbcc0::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+.iekbcc0::-webkit-scrollbar-thumb {
+  background-color: #39261010;
+  border-radius: 4px;
+}
+
+/* .iekbcc0 .ju367v9i {
+  background-color: red!impro;
+} */

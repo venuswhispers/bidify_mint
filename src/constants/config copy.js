@@ -24,10 +24,7 @@ export const NetworkId = {
   OPTIMISM: 10,
   MANTLE: 5000,
   GOERLI: 5,
-  SEPOLIA: 11155111,
-  BASE: 8453,
-  SCROLL: 534352
-
+  SEPOLIA: 11155111
   // FUJI: 43113,
 };
 export const supportedChainIds = [ NetworkId.POLYGON, NetworkId.BSC, NetworkId.ETC, NetworkId.GNOSIS, NetworkId.ETHERGEM, NetworkId.AVALANCHE, NetworkId.MOONRIVER, NetworkId.EVMOS, NetworkId.ARBITRUM, NetworkId.OPTIMISM]
@@ -105,13 +102,6 @@ export const NETWORKS = {
     explorer: "https://bscscan.com",
     url: "https://bsc-dataseed1.binance.org",
   },
-  [NetworkId.MANTLE]: {
-    image: bnb,
-    label: "Mantle",
-    chainId: 5000,
-    explorer: "https://explorer.mantle.xyz",
-    url: "https://explorer.mantle.xyz",
-  },
   [NetworkId.ETC]: {
     image: etc,
     label: "Ethereum Classic",
@@ -139,13 +129,6 @@ export const NETWORKS = {
     chainId: 43114,
     explorer: "https://snowtrace.io",
     url: "https://api.avax.network/ext/bc/C/rpc",
-  },
-  [NetworkId.BASE]: {
-    image: avax,
-    label: "BASE",
-    chainId: 8453,
-    explorer: "https://basescan.org",
-    url: "https://mainnet.base.org",
   },
   [NetworkId.RINKEBY]: {
     image: eth,
@@ -181,13 +164,6 @@ export const NETWORKS = {
     chainId: 10,
     explorer: "https://optimistic.etherscan.io",
     url: ""
-  },
-  [NetworkId.SCROLL]: {
-    image: "https://assets-global.website-files.com/611dbb3c82ba72fbc285d4e2/611fd32ddac3c1856c306c37_optimism%20logo%20icon.svg",
-    label: "Scroll",
-    chainId: 15343520,
-    explorer: "https://scrollscan.com",
-    url: "https://rpc.scroll.io"
   },
   [NetworkId.zkSyncTestnet]: {
     image: "/zksync-arrows.svg",
