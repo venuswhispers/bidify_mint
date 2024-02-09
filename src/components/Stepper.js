@@ -26,7 +26,7 @@ const VerticalLinearStepper = ({ activeStep = 0, forSale = false, rate = 30, cha
     },
     {
       label: "Minting NFTs...",
-      description: `Minting NFT to ${chain} chai`,
+      description: `Minting NFT to ${chain}`,
     },
     {
       label: "Creating Auctions...",
@@ -47,8 +47,7 @@ const VerticalLinearStepper = ({ activeStep = 0, forSale = false, rate = 30, cha
     },
     {
       label: "Minting NFTs...",
-      description:
-        "Minting NFT to BNB chain",
+      description: `Minting NFT to ${chain}`
     },
     {
       label: "Adding to database...",

@@ -104,11 +104,11 @@ const Home = () => {
     }
   };
 
-  // useEffect(() => {
-  //   if (toast) {
-  //     setTimeout(() => setToast(""), 8000);
-  //   }
-  // }, [toast]);
+  useEffect(() => {
+    if (toast) {
+      setTimeout(() => setToast(""), 5000);
+    }
+  }, [toast]);
 
   useEffect(() => {
     document.addEventListener("click", handleClick);
