@@ -634,16 +634,17 @@ const Home = () => {
         collection: advanced ? collectionName : "TOKEN_ADDRESSES BidifyMint Nft",
         symbol: advanced ? symbol : "SBN",
         platform: advanced ? platform : TOKEN_ADDRESSES[chainId],
-        etc: { value: mintCost, from: address, gasLimit: 3000000, gasPrice: 3000000 }
+        etc: chainId === 137 ? { value: mintCost, from: address, gasLimit: 285000, gasPrice: ethers.utils.parseUnits('300', 'gwei') } :
+        { value: mintCost, from: address }
       })
-      
+
       const tx = await bidifyMinter.mint(
         tokenURIJson.toString(),
         amount,
         advanced ? collectionName : "TOKEN_ADDRESSES BidifyMint Nft",
         advanced ? symbol : "SBN",
         advanced ? platform : TOKEN_ADDRESSES[chainId],
-        chainId === 137 ? { value: mintCost, from: address, gasLimit: 30000000, gasPrice: 30000000 } :
+        chainId === 137 ? { value: mintCost, from: address, gasLimit: 285000, gasPrice: ethers.utils.parseUnits('300', 'gwei') } :
         { value: mintCost, from: address }
       ).catch(err => {
         console.log(err);
