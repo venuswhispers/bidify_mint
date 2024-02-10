@@ -53,13 +53,13 @@ const defaultChains = [
     iconUrl: "/chain_logos/etc.svg",
   },
   classic,
-  optimism,
-  arbitrum,
+  // optimism,
+  // arbitrum,
   {
     ...mantle,
     iconUrl: "/chain_logos/mantle.avif",
   },
-  base,
+  // base,
   {
     ...scroll,
     iconUrl: "/chain_logos/scroll.svg",

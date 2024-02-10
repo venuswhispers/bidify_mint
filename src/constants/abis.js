@@ -77,7 +77,7 @@ export const ABI = [
   },
 ];
 
-export const ERC721_ABI = [
+export const  ERC721_ABI = [
   {
     inputs: [],
     stateMutability: "nonpayable",
