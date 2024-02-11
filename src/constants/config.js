@@ -85,24 +85,15 @@ export const NETWORKS = {
   [NetworkId.POLYGON]: {
     image: matic,
     label: "Polygon",
+    symbol: "MATIC",
     chainId: 137,
     explorer: "https://polygonscan.com",
     url: "https://polygon-rpc.com",
   },
-  // [NetworkId.POLYGON_TESTNET]: {
-  //   image: matic,
-  //   label: "Polygon Mumbai",
-  //   chainId: 80001
-  // },
-  // [NetworkId.ETHEREUM]: {
-  //   image: eth,
-  //   label: "Ethereum",
-  //   chainId: 1,
-  //   url: "https://mainnet.infura.io/v3/0c8149f8e63b4b818d441dd7f74ab618"
-  // },
   [NetworkId.BSC]: {
     image: bnb,
     label: "Binance Smart Chain",
+    symbol: "BNB",
     chainId: 56,
     explorer: "https://bscscan.com",
     url: "https://bsc-dataseed1.binance.org",
@@ -110,6 +101,7 @@ export const NETWORKS = {
   [NetworkId.MANTLE]: {
     image: bnb,
     label: "Mantle",
+    symbol: "MNT",
     chainId: 5000,
     explorer: "https://explorer.mantle.xyz",
     url: "https://explorer.mantle.xyz",
@@ -118,26 +110,14 @@ export const NETWORKS = {
     image: etc,
     label: "Ethereum Classic",
     chainId: 61,
+    symbol: "ETC",
     explorer: "https://etc.tokenview.com/en", //"https://blockscout.com/etc/mainnet/",
     url: "https://etc.etcdesktop.com",
-  },
-  [NetworkId.GNOSIS]: {
-    image: gnosis,
-    label: "Gnosis Chain",
-    chainId: 100,
-    explorer: "https://xdai.tokenview.com/en", //"https://blockscout.com/xdai/mainnet/",
-    url: "https://rpc.gnosischain.com",
-  },
-  [NetworkId.ETHERGEM]: {
-    image: egem,
-    label: "Ethergem",
-    chainId: 1987,
-    explorer: "https://blockscout.egem.io",
-    url: "https://lb.rpc.egem.io",
   },
   [NetworkId.AVALANCHE]: {
     image: avax,
     label: "Avalanche",
+    symbol: "AVAX",
     chainId: 43114,
     explorer: "https://snowtrace.io",
     url: "https://api.avax.network/ext/bc/C/rpc",
@@ -146,33 +126,14 @@ export const NETWORKS = {
     image: avax,
     label: "BASE",
     chainId: 8453,
+    symbol: "BASE",
     explorer: "https://basescan.org",
     url: "https://mainnet.base.org",
-  },
-  [NetworkId.RINKEBY]: {
-    image: eth,
-    label: "Rinkeby",
-    chainId: 4,
-    explorer: "https://rinkeby.etherscan.io",
-    url: "https://rinkeby.infura.io/v3/0c8149f8e63b4b818d441dd7f74ab618",
-  },
-  [NetworkId.MOONRIVER]: {
-    image: moonriver,
-    label: "Moonriver",
-    chainId: 1285,
-    explorer: "https://moonriver.moonscan.io",
-    url: "https://rpc.api.moonriver.moonbeam.network",
-  },
-  [NetworkId.EVMOS]: {
-    image: evmos,
-    label: "Evmos",
-    chainId: 9001,
-    explorer: "https://evm.evmos.org",
-    url: "https://eth.bd.evmos.org:8545",
   },
   [NetworkId.ARBITRUM]: {
     image: "https://bridge.arbitrum.io/logo.png",
     label: "Arbitrum",
+    symbol: "ETH",
     chainId: 42161,
     explorer: "https://arbiscan.io",
     url: ""
@@ -181,6 +142,7 @@ export const NETWORKS = {
     image: "https://assets-global.website-files.com/611dbb3c82ba72fbc285d4e2/611fd32ddac3c1856c306c37_optimism%20logo%20icon.svg",
     label: "Optimism",
     chainId: 10,
+    symbol: "ETH",
     explorer: "https://optimistic.etherscan.io",
     url: ""
   },
@@ -188,6 +150,7 @@ export const NETWORKS = {
     image: "https://assets-global.website-files.com/611dbb3c82ba72fbc285d4e2/611fd32ddac3c1856c306c37_optimism%20logo%20icon.svg",
     label: "Scroll",
     chainId: 15343520,
+    symbol: "ETH",
     explorer: "https://scrollscan.com",
     url: "https://rpc.scroll.io"
   },
@@ -211,6 +174,7 @@ export const NETWORKS = {
     image: "/ether.png",
     label: "goerliTestnet",
     chainId: 5,
+    symbol: "ETH",
     explorer: "https://goerli.etherscan.io", //"https://zksync2-mainnet.zkscan.io/",
     url: "https://goerli.etherscan.io"
   },
@@ -218,6 +182,7 @@ export const NETWORKS = {
     image: "/ether.png",
     label: "sepoliaTestnet",
     chainId: 11155111,
+    symbol: "ETH",
     explorer: "https://sepolia.etherscan.io", //"https://zksync2-mainnet.zkscan.io/",
     url: "https://sepolia.etherscan.io/"
   }

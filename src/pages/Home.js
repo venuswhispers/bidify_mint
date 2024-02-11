@@ -127,43 +127,6 @@ const Home = () => {
   const getLogo = () => {
     return mintLogo;
   };
-  const getSymbol = () => {
-    // if(chainId === undefined) return ethLogo
-    switch (chainId) {
-      case 1:
-      case 4:
-      case 10:
-      case 42161:
-        return "ETH";
-      case 1987:
-        return "EGEM";
-      case 137:
-      case 80001:
-        return "MATIC";
-      case 43113:
-      case 43114:
-        // return avaxLogo
-        return "AVAX";
-      case 56:
-        return "BNB";
-      case 8217:
-        return "KLAY";
-      case 100:
-        return "XDAI";
-      case 61:
-        return "ETC";
-      case 1285:
-        return "MOVR";
-      case 9001:
-        return "EVMOS";
-      case 280:
-        return "ETH";
-      case 324:
-        return "ETH";
-      default:
-        return "Currency";
-    }
-  };
   const readImage = (event) => {
     console.log(event.target.files.length)
     if (!event.target.files.length) {
@@ -1185,7 +1148,7 @@ const Home = () => {
                   <div className="flex justify-between">
                     {bid ? (
                       <span className="">
-                        {bid} {getSymbol()}
+                        { bid } { NETWORKS[chainId] && NETWORKS[chainId].symbol }
                       </span>
                     ) : (
                       <div className="w-[50px] animate-pulse min-h-[15px] bg-gray-300 rounded-full"></div>
@@ -1202,7 +1165,7 @@ const Home = () => {
             <p className="mt-4 self-center sm:hidden text-[#e48b24] flex items-center gap-1">
               fee ={" "}
               {Number(cost) > 0
-                ? `${ethers.utils.formatEther(cost)} ${getSymbol()}`
+                ? `${ethers.utils.formatEther(cost)} ${ NETWORKS[chainId] && NETWORKS[chainId].symbol }`
                 : "N/A"}
               <img
                 data-tooltip-target="tooltip-fee"
@@ -1213,12 +1176,13 @@ const Home = () => {
             </p>
             {chainId !== undefined && (
               <label className="block mt-3 text-sm font-medium text-center text-gray-900 sm:hidden dark:text-gray-300">
-                You don't have any {getSymbol(chainId)}?
+                You don't have any { NETWORKS[chainId] && NETWORKS[chainId].symbol }?
                 <button
                   className="text-[#e48b24]"
                   onClick={() =>
                     window.open(
-                      process.env.REACT_APP_TRANSACK_URL,
+                      // process.env.REACT_APP_TRANSACK_URL,
+                      "https://transak.com/",
                       "Buy Token",
                       "width=800,height=600,popup"
                     )
@@ -1617,7 +1581,7 @@ const Home = () => {
               <label className="self-center hidden sm:block text-[#e48b24]">
                 fee ={" "}
                 {Number(cost) > 0
-                  ? `${ethers.utils.formatEther(cost)} ${getSymbol()}`
+                  ? `${ethers.utils.formatEther(cost)} ${ NETWORKS[chainId] && NETWORKS[chainId].symbol }`
                   : "N/A"}
               </label>
               <img
@@ -1639,14 +1603,15 @@ const Home = () => {
             </div>
             {chainId !== undefined && (
               <label className="hidden mt-3 text-sm font-medium text-center text-gray-900 sm:block dark:text-gray-300">
-                You don't have any {getSymbol(chainId)}?{" "}
+                You don't have any { NETWORKS[chainId] && NETWORKS[chainId].symbol }{" "}
                 <button
                   className="text-[#e48b24]"
                   href="#"
                   rel="noopener noreferrer"
                   onClick={() =>
                     window.open(
-                      process.env.REACT_APP_TRANSACK_URL,
+                      // process.env.REACT_APP_TRANSACK_URL,
+                      "https://transak.com/",
                       "Buy Token",
                       "width=800,height=600"
                     )
