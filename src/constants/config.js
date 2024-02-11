@@ -38,6 +38,7 @@ export const FACTORY_ADDRESSES = {
   [NetworkId.POLYGON]: "0x58dD4052c3d4e4f020365AE4dfAE16d1Fdd1f763",//verified & adjusted
   [NetworkId.ETC]: "0xf58D78F353C67a1FeDf1C8dc60cF09c88B3b8ACc", //verified & adjusted
   [NetworkId.MANTLE]: "0xf58D78F353C67a1FeDf1C8dc60cF09c88B3b8ACc",//verified & adjusted
+  [NetworkId.SCROLL]: "0x21E17d7D4f6B6e4116591730CEec05EC63cF9924",//verified & adjusted
 
   // [NetworkId.RINKEBY]: "0x0f79f4239F343fc932F357eFAAeE405a90d28e42", //verified
   // [NetworkId.ETHERGEM]: "0x5A4Aa5B8f54763A22A7bE54F30Be650fe040b8eA", //
@@ -60,6 +61,7 @@ export const TOKEN_ADDRESSES = {
   [NetworkId.POLYGON]: "0x08E7733a6D2a7Fc0363Dae117F8608AAb518F996",//verified & adjusted
   [NetworkId.ETC]: "0x7DA6DF0e81a6eD9F98B3fd374CF6bE4f3099216E",//verified & adjusted
   [NetworkId.MANTLE]: "0x7DA6DF0e81a6eD9F98B3fd374CF6bE4f3099216E",//verified & adjusted
+  [NetworkId.SCROLL]: "0xD76e5a10702156c4155443EC93Ff634b6F12a312",//verified & adjusted
 
   // [NetworkId.RINKEBY]: "0xFe4317e87958f5b408aF9d8fFf78F228435fd0C8",
   // [NetworkId.ETHERGEM]: "0xf3195693ddb32822cdf759305a91b674ab1382e1",
