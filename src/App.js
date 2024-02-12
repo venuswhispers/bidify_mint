@@ -1,38 +1,20 @@
+import "@rainbow-me/rainbowkit/styles.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
 import Home from "./pages/Home";
 
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { WagmiProvider, http } from "wagmi";
+import { getDefaultConfig } from "@rainbow-me/rainbowkit";
 import ActiveWeb3Provider from "./contexts/Web3Context";
-import { Web3Provider } from "@ethersproject/providers";
-// import NotificationProvider from "../src/contexts/NotificationContext";
-// import GA from './utils/GoogleAnalytics'
-import { useAnalytics } from "./utils/GoogleAnalytics";
-import { Wrapper } from "./components/Wrapper";
 
-//rainbowkit @used by dew
-import "@rainbow-me/rainbowkit/styles.css";
+import { mainnet } from "wagmi/chains";
 import {
   RainbowKitProvider,
   connectorsForWallets,
 } from "@rainbow-me/rainbowkit";
+import { customChains } from "./constants/chains";
 
-import { publicProvider } from "wagmi/providers/public";
-
-import { configureChains, createConfig, WagmiConfig } from "wagmi";
-
-import {
-  polygon,
-  avalanche,
-  bsc,
-  classic,
-  optimism,
-  arbitrum,
-  mantle,
-  base,
-  scroll,
-  goerli,
-  sepolia,
-} from "wagmi/chains";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 import {
   metaMaskWallet,
@@ -44,78 +26,59 @@ import {
   okxWallet,
 } from "@rainbow-me/rainbowkit/wallets";
 
-const defaultChains = [
-  polygon,
-  bsc,
-  avalanche,
-  {
-    ...classic,
-    iconUrl: "/chain_logos/etc.svg",
-  },
-  classic,
-  // optimism,
-  // arbitrum,
-  {
-    ...mantle,
-    iconUrl: "/chain_logos/mantle.avif",
-  },
-  // base,
-  {
-    ...scroll,
-    iconUrl: "/chain_logos/scroll.svg",
-  },
-  sepolia,
-  goerli,
-];
-const { chains, publicClient } = configureChains(defaultChains, [
-  // infuraProvider({ apiKey: "07556fc9491e4dbb9c75160d21174a79" }),
-  publicProvider(),
-]);
-// const projectId = process.env.REACT_APP_PROJECT_ID || "mint.bidify.cloud's Project id";
-const projectId = process.env.REACT_APP_PROJECT_ID || "e89228fed40d4c6e9520912214dfd68b";
+import "./App.css";
 
-const connectors = connectorsForWallets([
-  {
-    groupName: "mint.bidify.org",
-    wallets: [
-      metaMaskWallet({ projectId, chains, shimDisconnect: true }),
-      phantomWallet({ chains }),
-      walletConnectWallet({ projectId, chains }),
-      rainbowWallet({ projectId, chains }),
-      trustWallet({ projectId, chains }),
-      ledgerWallet({ projectId, chains }),
-      okxWallet({ projectId, chains }),
-    ],
-  },
-]);
+const projectId =
+  process.env.REACT_APP_PROJECT_ID || "e89228fed40d4c6e9520912214dfd68b";
 
-const wagmiConfig = createConfig({
-  autoConnect: true,
-  connectors,
-  publicClient,
+const connectors = connectorsForWallets(
+  [
+    {
+      groupName: "Recommended",
+      wallets: [
+        metaMaskWallet,
+        phantomWallet,
+        walletConnectWallet,
+        rainbowWallet,
+        trustWallet,
+        ledgerWallet,
+        okxWallet,
+      ],
+    },
+  ],
+  {
+    appName: "My RainbowKit App",
+    projectId: "YOUR_PROJECT_ID",
+  }
+);
+
+const config = getDefaultConfig({
+  appName: "RainbowKit demo",
+  projectId: "projectId",
+  chains: customChains,
+  // transports: {
+  //   [mainnet.id]: http(),
+  // },
+  connectors: connectors,
 });
 
-function getLibrary(provider) {
-  return new Web3Provider(provider);
-}
-
-function App() {
-  //@ modified by dew
-  const { initialized } = useAnalytics();
+const queryClient = new QueryClient();
+const App = () => {
   return (
-    <WagmiConfig config={wagmiConfig}>
-      <RainbowKitProvider chains={chains}>
+    <WagmiProvider config={config}>
+      <QueryClientProvider client={queryClient}>
+        <RainbowKitProvider>
           <ActiveWeb3Provider>
             <BrowserRouter>
-              <Wrapper initialized={initialized} />
               <Routes>
                 <Route path="/" element={<Home />} />
               </Routes>
             </BrowserRouter>
           </ActiveWeb3Provider>
-      </RainbowKitProvider>
-    </WagmiConfig>
+        </RainbowKitProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
   );
-}
+};
 
 export default App;

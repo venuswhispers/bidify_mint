@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState, useMemo } from "react";
-import { NFTStorage } from "nft.storage";
 import bannerImg from "../assets/images/heroIllustration.svg";
 import bidifyLogo from "../assets/images/bidify.png";
 import disturb from "../assets/images/disturb.png";
@@ -40,7 +39,6 @@ import Terms from "../assets/docs/Bidify_Mint_Terms_and_Conditions.pdf";
 import Policy from "../assets/docs/Bidify_Mint_Privacy_Policy.pdf";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 // import { create } from 'ipfs-http-client'
-const client = new NFTStorage({ token: PINATA_KEY });
 
 const postUrl = `https://cryptosi.us2.list-manage.com/subscribe/post?u=${process.env.REACT_APP_MAILCHIMP_U}&id=${process.env.REACT_APP_MAILCHIMP_ID}`;
 // const ipfs = create({ host: 'ipfs.infura.io', port: 5001, protocol: 'https', apiPath: '/ipfs/api/v0' })
@@ -1043,6 +1041,96 @@ const Home = () => {
         />
         <div className="flex gap-0 my-0 sm:my-3 sm:gap-4">
           <ConnectButton></ConnectButton>
+        {/* <ConnectButton.Custom>
+      {({
+        account,
+        chain,
+        openAccountModal,
+        openChainModal,
+        openConnectModal,
+        authenticationStatus,
+        mounted,
+      }) => {
+        // Note: If your app doesn't use authentication, you
+        // can remove all 'authenticationStatus' checks
+        const ready = mounted && authenticationStatus !== 'loading';
+        const connected =
+          ready &&
+          account &&
+          chain &&
+          (!authenticationStatus ||
+            authenticationStatus === 'authenticated');
+
+        return (
+          <div
+            {...(!ready && {
+              'aria-hidden': true,
+              'style': {
+                opacity: 0,
+                pointerEvents: 'none',
+                userSelect: 'none',
+              },
+            })}
+          >
+            {(() => {
+              if (!connected) {
+                return (
+                  <button onClick={openConnectModal} type="button">
+                    Connect Wallet
+                  </button>
+                );
+              }
+
+              if (chain.unsupported) {
+                return (
+                  <button onClick={openChainModal} type="button">
+                    Wrong network
+                  </button>
+                );
+              }
+
+              return (
+                <div style={{ display: 'flex', gap: 12 }}>
+                  <button
+                    onClick={openChainModal}
+                    style={{ display: 'flex', alignItems: 'center' }}
+                    type="button"
+                  >
+                    {chain.hasIcon && (
+                      <div
+                        style={{
+                          background: chain.iconBackground,
+                          width: 12,
+                          height: 12,
+                          borderRadius: 999,
+                          overflow: 'hidden',
+                          marginRight: 4,
+                        }}
+                      >
+                        {chain.iconUrl && (
+                          <img
+                            alt={chain.name ?? 'Chain icon'}
+                            src={chain.iconUrl}
+                            style={{ width: 12, height: 12 }}
+                          />
+                        )}
+                      </div>
+                    )}
+                    {chain.name}
+                  </button>
+
+                  <button onClick={openAccountModal} type="button">
+                    {account.displayName}
+                    {account.displayBalance}
+                    {console.log(account)}
+                  </button>
+                </div>
+              );
+            })()}
+          </div>
+        );
+      }}
+    </ConnectButton.Custom> */}
         </div>
       </div>
       <div className="bg-gradient-to-r from-[#e48b24] to-[#85623a] flex items-center justify-between px-4 pt-6 md:pt-24 pb-1 md:pb-0">
@@ -1603,7 +1691,7 @@ const Home = () => {
             </div>
             {chainId !== undefined && (
               <label className="hidden mt-3 text-sm font-medium text-center text-gray-900 sm:block dark:text-gray-300">
-                You don't have any { NETWORKS[chainId] && NETWORKS[chainId].symbol }{" "}
+                You don't have any { NETWORKS[chainId] && NETWORKS[chainId].symbol }?{" "}
                 <button
                   className="text-[#e48b24]"
                   href="#"

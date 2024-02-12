@@ -1,7 +1,7 @@
 import React from "react";
 
 import { providers } from 'ethers'
-import { useAccount, useDisconnect, useNetwork, useSwitchNetwork, useChainId, useWalletClient, Config } from "wagmi";
+import { useAccount, useChainId, useWalletClient } from "wagmi";
 
 function clientToSigner(client) {
   const { account, chain, transport } = client
@@ -22,6 +22,7 @@ const Web3ContextProvider = ({ children }) => {
 
   const { address, isConnected, isConnecting, isReconnecting, connector } = useAccount()
   const chainId = useChainId();
+
   
   const { data: client } = useWalletClient({ chainId })
   const signer = React.useMemo(() => (client ? clientToSigner(client) : undefined), [client])

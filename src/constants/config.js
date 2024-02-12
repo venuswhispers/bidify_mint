@@ -1,13 +1,14 @@
-import eth from "../assets/images/eth.png"
-import matic from "../assets/images/matic.png"
-import avax from "../assets/images/avax.png"
-import egem from "../assets/images/egem.png"
-import bnb from "../assets/images/bnb.png"
-import gnosis from "../assets/images/gnosis.png"
-import etc from "../assets/images/etc.png"
-// import klaytn from "../assets/images/klaytn.png"
-import evmos from "../assets/images/evmos.png"
-import moonriver from "../assets/images/moonriver.png"
+import eth from "../assets/images/eth.png";
+import matic from "../assets/images/matic.png";
+import avax from "../assets/images/avax.png";
+import egem from "../assets/images/egem.png";
+import bnb from "../assets/images/bnb.png";
+import gnosis from "../assets/images/gnosis.png";
+import etc from "../assets/images/etc.png";
+// import klaytn from "../assets/images/klaytn.png";
+import evmos from "../assets/images/evmos.png";
+import moonriver from "../assets/images/moonriver.png";
+
 
 export const NetworkId = {
   POLYGON: 137,
@@ -26,7 +27,8 @@ export const NetworkId = {
   GOERLI: 5,
   SEPOLIA: 11155111,
   BASE: 8453,
-  SCROLL: 534352
+  SCROLL: 534352,
+  BERA_TEST: 80085
 
   // FUJI: 43113,
 };
@@ -39,6 +41,7 @@ export const FACTORY_ADDRESSES = {
   [NetworkId.ETC]: "0xf58D78F353C67a1FeDf1C8dc60cF09c88B3b8ACc", //verified & adjusted
   [NetworkId.MANTLE]: "0xf58D78F353C67a1FeDf1C8dc60cF09c88B3b8ACc",//verified & adjusted
   [NetworkId.SCROLL]: "0x21E17d7D4f6B6e4116591730CEec05EC63cF9924",//verified & adjusted
+  [NetworkId.BERA_TEST]: "0xD76e5a10702156c4155443EC93Ff634b6F12a312",//verified & adjusted
 
   // [NetworkId.RINKEBY]: "0x0f79f4239F343fc932F357eFAAeE405a90d28e42", //verified
   // [NetworkId.ETHERGEM]: "0x5A4Aa5B8f54763A22A7bE54F30Be650fe040b8eA", //
@@ -62,6 +65,7 @@ export const TOKEN_ADDRESSES = {
   [NetworkId.ETC]: "0x7DA6DF0e81a6eD9F98B3fd374CF6bE4f3099216E",//verified & adjusted
   [NetworkId.MANTLE]: "0x7DA6DF0e81a6eD9F98B3fd374CF6bE4f3099216E",//verified & adjusted
   [NetworkId.SCROLL]: "0xD76e5a10702156c4155443EC93Ff634b6F12a312",//verified & adjusted
+  [NetworkId.BERA_TEST]: "0x21E17d7D4f6B6e4116591730CEec05EC63cF9924",//verified & adjusted
 
   // [NetworkId.RINKEBY]: "0xFe4317e87958f5b408aF9d8fFf78F228435fd0C8",
   // [NetworkId.ETHERGEM]: "0xf3195693ddb32822cdf759305a91b674ab1382e1",
@@ -185,6 +189,14 @@ export const NETWORKS = {
     symbol: "ETH",
     explorer: "https://sepolia.etherscan.io", //"https://zksync2-mainnet.zkscan.io/",
     url: "https://sepolia.etherscan.io/"
+  },
+  [NetworkId.BERA_TEST]: {
+    image: "/bera_test.avif",
+    label: "beraTestnet",
+    chainId: 80085,
+    symbol: "BERA",
+    explorer: "https://artio.beratrail.io/",
+    url: "https://api.routescan.io/v2/network/testnet/evm/80085/etherscan"
   }
   
   // [NetworkId.KLAYTN]: {
