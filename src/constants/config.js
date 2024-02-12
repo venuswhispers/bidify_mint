@@ -115,7 +115,7 @@ export const NETWORKS = {
     label: "Ethereum Classic",
     chainId: 61,
     symbol: "ETC",
-    explorer: "https://etc.tokenview.com/en", //"https://blockscout.com/etc/mainnet/",
+    explorer: "https://blockscout.com/etc/mainnet/", //"https://blockscout.com/etc/mainnet/",
     url: "https://etc.etcdesktop.com",
   },
   [NetworkId.AVALANCHE]: {

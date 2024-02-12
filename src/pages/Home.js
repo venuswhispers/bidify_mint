@@ -482,6 +482,16 @@ const Home = () => {
     }
   }
 
+  const _mintData = (_mintCost) => {
+    if (chainId === 137) {
+      return { value: _mintCost, from: address, gasLimit: 285000, gasPrice: ethers.utils.parseUnits('300', 'gwei') }
+    // } else if (chainId === 80085) {
+    //   return { value: _mintCost, from: address, gasLimit: 285000, gasPrice: ethers.utils.parseUnits('200', 'gwei') }
+    } else {
+      return { value: _mintCost, from: address }
+    }
+  }
+
   const onSubmit = async () => {
 
     console.log("@dew1204/onSubmit-------------->", { address: address, chainId: chainId, signer: signer, factory: FACTORY_ADDRESSES[chainId] });
@@ -595,8 +605,7 @@ const Home = () => {
         collection: advanced ? collectionName : "TOKEN_ADDRESSES BidifyMint Nft",
         symbol: advanced ? symbol : "SBN",
         platform: advanced ? platform : TOKEN_ADDRESSES[chainId],
-        etc: chainId === 137 ? { value: mintCost, from: address, gasLimit: 285000, gasPrice: ethers.utils.parseUnits('300', 'gwei') } :
-        { value: mintCost, from: address }
+        etc: _mintData(mintCost)
       });
 
       const tx = await bidifyMinter.mint(
@@ -605,8 +614,7 @@ const Home = () => {
         advanced ? collectionName : "TOKEN_ADDRESSES BidifyMint Nft",
         advanced ? symbol : "SBN",
         advanced ? platform : TOKEN_ADDRESSES[chainId],
-        chainId === 137 ? { value: mintCost, from: address, gasLimit: 285000, gasPrice: ethers.utils.parseUnits('300', 'gwei') } :
-        { value: mintCost, from: address }
+        _mintData(mintCost)
       ).catch(err => {
         console.log(err);
         throw "NFT mint failed.";
