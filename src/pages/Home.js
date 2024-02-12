@@ -1321,7 +1321,7 @@ const Home = () => {
           <div className="flex flex-col w-full">
             <div className="flex items-center justify-center w-full mt-8">
               <span className="ml-3 mr-3 text-lg font-medium text-gray-900 dark:text-gray-300">
-                TOKEN_ADDRESSES
+                Standard
               </span>
               <label
                 htmlFor="yellow-toggle"
